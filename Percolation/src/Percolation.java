@@ -75,14 +75,7 @@ public class Percolation {
     		grid.union(getIndexInArray(i, j), getIndexInArray(i - 1, j));
     	if(nodeExists(i + 1,j) && isOpen(i + 1, j))
     		grid.union(getIndexInArray(i, j), getIndexInArray(i + 1, j));
-    	if(nodeExists(i - 1,j - 1) && isOpen(i - 1, j - 1))
-    		grid.union(getIndexInArray(i, j), getIndexInArray(i - 1, j - 1));
-    	if(nodeExists(i - 1,j + 1) && isOpen(i - 1, j + 1))
-    		grid.union(getIndexInArray(i, j), getIndexInArray(i - 1, j + 1));
-    	if(nodeExists(i + 1,j -1 ) && isOpen(i + 1, j - 1))
-    		grid.union(getIndexInArray(i, j), getIndexInArray(i + 1, j - 1));
-    	if(nodeExists(i +1 ,j + 1) && isOpen(i + 1, j + 1))
-    		grid.union(getIndexInArray(i, j), getIndexInArray(i + 1, j + 1));
+    	
 	}
 
     private boolean nodeExists(int i, int j) {
@@ -103,6 +96,10 @@ public class Percolation {
    
    public boolean isFull(int i, int j) {
 		return grid.connected(getIndexInArray(i, j), n*n) && isOpen(i, j);
+   }
+   
+   public boolean percolates(){
+	   return (grid.connected(topVirtualNode, bottomVirtualNode));
    }
    
    

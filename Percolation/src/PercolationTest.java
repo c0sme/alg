@@ -53,79 +53,37 @@ public class PercolationTest {
 		per.open(1, 0);
 		assertTrue("node must have one neighbourgh before", per.isFull(1, 0));
 	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsAfter(){
-//		per.open(4, 6);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh before", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsAbove(){
-//		per.open(3, 5);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh above", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsBelow(){
-//		per.open(5, 5);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh below", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsOnTopLeft(){
-//		per.open(3, 4);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh on top left", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsOnTopRight(){
-//		per.open(3, 6);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh on top right", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsOnBottomLeft(){
-//		per.open(5, 4);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh on bottom left", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_hasNeighbourgsOnBottomRight(){
-//		per.open(5, 6);
-//		per.open(4, 5);
-//		assertTrue("node must have one neighbourgh on bottom right", per.hasNeighbourghs(4, 5));
-//	}
-//	
-//	@Test
-//	public void test_neighbourhgOutOfBoundsWithNoNeighbourgs(){
-//		per.open(0, 0);
-//		assertFalse("node must not have neighbourghs ", per.hasNeighbourghs(0, 0));
-//	}
-//	
-//	@Test
-//	public void test_neighbourhgOutOfBoundsWithOneNeighbourg(){
-//		per.open(0, 1);
-//		assertTrue("node must have one neighbourgh ", per.hasNeighbourghs(0, 0));
-//	}
+
 	
 	@Test
 	public void test_openNodeInSecondLineHasToBeFull(){
 		per.open(0, 0);
-		per.open(1, 1);
-		assertTrue("node has to be full",per.isFull(1, 1));
+		per.open(1, 0);
+		assertTrue("node has to be full",per.isFull(1, 0));
 	}
 	
 	@Test
 	public void test_openNodeInSecondLineHasToBeNotFull(){
-		per.open(1, 0);
+		per.open(0, 0);
 		assertFalse("node has to be full",per.isFull(1, 0));
+	}
+	
+	@Test
+	public void test_systemPercolates(){
+		per.open(0, 0);
+		per.open(1, 0);
+		per.open(2, 0);
+		per.open(3, 0);
+		per.open(4, 0);
+		per.open(5, 0);
+		
+		per.open(6, 0);
+		per.open(7, 0);
+		per.open(8, 0);
+		per.open(9, 0);
+		
+		assertTrue("system shoul percolate", per.percolates());
+		
 	}
 	
 	
